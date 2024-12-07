@@ -687,6 +687,22 @@ and should only be done for debugging and on CI when running tests.
 
 Defaults to ``false``
 
+auth.bruteforce.max-attempts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+::
+
+	'auth.bruteforce.max-attempts' => 10,
+
+Brute force protection: maximum number of attempts before blocking
+
+When more than max-attempts login requests are sent to Nextcloud, requests
+will abort with "429 Too Many Requests".
+For security reasons, change it only if you know what you are doing.
+
+Defaults to ``10``
+
 ratelimit.protection.enabled
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -3068,7 +3084,7 @@ minimum.supported.desktop.version
 
 ::
 
-	'minimum.supported.desktop.version' => '2.3.0',
+	'minimum.supported.desktop.version' => '2.7.0',
 
 The minimum Nextcloud desktop client version that will be allowed to sync with
 this server instance. All connections made from earlier clients will be denied
@@ -3079,7 +3095,21 @@ When changing this, note that older unsupported versions of the Nextcloud deskto
 client may not function as expected, and could lead to permanent data loss for
 clients or other unexpected results.
 
-Defaults to ``2.3.0``
+Defaults to ``2.7.0``
+
+maximum.supported.desktop.version
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+::
+
+	'maximum.supported.desktop.version' => '99.99.99',
+
+The maximum Nextcloud desktop client version that will be allowed to sync with
+this server instance. All connections made from later clients will be denied
+by the server.
+
+Defaults to 99.99.99
 
 localstorage.allowsymlinks
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
